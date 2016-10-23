@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CalculatorTest1</string>
+    <string-array name="operators">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+    </string-array>
 </resources>
