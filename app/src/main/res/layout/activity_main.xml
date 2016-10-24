@@ -37,9 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
-        android:layout_below="@+id/yValue"
-        android:layout_alignLeft="@+id/yValue"
-        android:layout_alignStart="@+id/yValue" />
+        android:layout_below="@+id/yValue" />
 
     <EditText
         android:layout_width="wrap_content"
