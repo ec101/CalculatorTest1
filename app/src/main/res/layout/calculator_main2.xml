@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:columnCount="5"
+    android:rowCount="4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    >
+
+    <EditText
+        android:layout_columnSpan="5"
+        android:layout_gravity="fill_horizontal"
+        android:inputType="number"
+        android:text="0.0"/>
+
+    <Button android:text="@string/one" />
+    <Button android:text="@string/two" />
+    <Button android:text="@string/three" />
+    <Button android:text="@string/plus" />
+    <Button
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill_vertical"
+        android:text="@string/clear" />
+
+    <Button android:text="@string/four" />
+    <Button android:text="@string/five" />
+    <Button android:text="@string/six" />
+    <Button android:text="@string/minus" />
+    <Button android:text="@string/seven" />
+    <Button android:text="@string/eight" />
+    <Button android:text="@string/nine" />
+    <Button android:text="@string/multiply" />
+    <Button
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill_vertical"
+        android:text="@string/equals" />
+
+    <Button
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:text="@string/zero" />
+    <Button android:text="@string/decimalPoint" />
+    <Button android:text="@string/divide" />
+
+</GridLayout>
