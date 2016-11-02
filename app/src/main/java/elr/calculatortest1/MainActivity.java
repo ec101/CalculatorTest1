@@ -15,42 +15,46 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //initSpinner();
-        final Calculator calculator = new Calculator();
+        UserInputParser inputParser = new UserInputParser(this);
 
+        final Button plusButton = (Button)findViewById(R.id.plus_button);
+        View.OnClickListener plus_listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            }
+        };
+        plusButton.setOnClickListener(plus_listener);
 
-//        final Button calculateButton = (Button)findViewById(R.id.plus_button);
-//        View.OnClickListener listener = new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//
-//                EditText xValueTextField = (EditText)findViewById(R.id.xValue);
-//                Integer xValue = getNumericValue(xValueTextField);
-//
-//                EditText yValueTextField = (EditText)findViewById(R.id.yValue);
-//                Integer yValue = getNumericValue(yValueTextField);
-//
-//                Spinner spinner = (Spinner)findViewById(R.id.spinner);
-//                Operator selectedOperator = Operator.getOperator((String)spinner.getSelectedItem());
-//
-//                Integer result = calculator.calculate(xValue, selectedOperator, yValue);
-//
-//                EditText resultTextField = (EditText)findViewById(R.id.resultValue);
-//                resultTextField.setText(result.toString());
-//            }
-//        };
-//        calculateButton.setOnClickListener(listener);
+        final Button minusButton = (Button)findViewById(R.id.minus_button);
+        View.OnClickListener minus_listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            }
+        };
+        plusButton.setOnClickListener(minus_listener);
+
+        final Button multiplyButton = (Button)findViewById(R.id.multiply_button);
+        View.OnClickListener multiply_listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            }
+        };
+        plusButton.setOnClickListener(multiply_listener);
+
+        final Button divideButton = (Button)findViewById(R.id.divide_button);
+        View.OnClickListener divide_listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            }
+        };
+        plusButton.setOnClickListener(divide_listener);
+
+        final Button equalsButton = (Button)findViewById(R.id.equals_button);
+        View.OnClickListener equals_listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            }
+        };
+        plusButton.setOnClickListener(equals_listener);
     }
-
-    private Integer getNumericValue(EditText textField) {
-        return Integer.valueOf(textField.getText().toString());
-    }
-
-//    private void initSpinner(){
-//        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.operators, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
-//    }
 }

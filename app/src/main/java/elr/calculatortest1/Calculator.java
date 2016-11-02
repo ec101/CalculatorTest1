@@ -6,6 +6,10 @@ package elr.calculatortest1;
 
 class Calculator {
 
+    private double total = 0;
+    private Operator currentOperator = null;
+
+
     Integer calculate(Integer xValue, Operator operator, Integer yValue){
         if(Operator.PLUS.equals(operator)){
             return add(xValue, yValue);
