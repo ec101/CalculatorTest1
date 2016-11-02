@@ -3,10 +3,6 @@ package elr.calculatortest1;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
-/**
- * Created by Emmet on 02/11/2016.
- */
-
 public class UserInputParser {
 
     private final AppCompatActivity activity;
