@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener plus_listener = new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                //// TODO: 07/11/2016  
             }
         };
         plusButton.setOnClickListener(plus_listener);
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             }
         };
-        plusButton.setOnClickListener(minus_listener);
+        minusButton.setOnClickListener(minus_listener);
 
         final Button multiplyButton = (Button)findViewById(R.id.multiply_button);
         View.OnClickListener multiply_listener = new View.OnClickListener(){
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             }
         };
-        plusButton.setOnClickListener(multiply_listener);
+        multiplyButton.setOnClickListener(multiply_listener);
 
         final Button divideButton = (Button)findViewById(R.id.divide_button);
         View.OnClickListener divide_listener = new View.OnClickListener(){
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             }
         };
-        plusButton.setOnClickListener(divide_listener);
+        divideButton.setOnClickListener(divide_listener);
 
         final Button equalsButton = (Button)findViewById(R.id.equals_button);
         View.OnClickListener equals_listener = new View.OnClickListener(){
@@ -55,6 +56,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             }
         };
-        plusButton.setOnClickListener(equals_listener);
+        equalsButton.setOnClickListener(equals_listener);
     }
 }
