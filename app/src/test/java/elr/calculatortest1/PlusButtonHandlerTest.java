@@ -2,6 +2,11 @@ package elr.calculatortest1;
 
 import org.junit.Test;
 
+import elr.calculatortest1.calculator.CalculatorState;
+import elr.calculatortest1.calculator.DefaultCalculatorState;
+import elr.calculatortest1.io.PlusButtonHandler;
+import elr.calculatortest1.io.UserInputProvider;
+
 import static org.junit.Assert.*;
 
 /**

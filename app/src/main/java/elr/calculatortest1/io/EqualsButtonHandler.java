@@ -1,4 +1,6 @@
-package elr.calculatortest1;
+package elr.calculatortest1.io;
+
+import elr.calculatortest1.calculator.CalculatorState;
 
 /**
  * Created by Emmet on 06/11/2016.
@@ -7,9 +9,9 @@ package elr.calculatortest1;
 public class EqualsButtonHandler implements OperatorInputHandler {
 
     private final CalculatorState calculatorState;
-    private final DefaultUserInputProvider input;
+    private final UserInputProvider input;
 
-    public EqualsButtonHandler(final CalculatorState calculatorState, final DefaultUserInputProvider input){
+    public EqualsButtonHandler(final CalculatorState calculatorState, final UserInputProvider input){
         super();
         this.calculatorState = calculatorState;
         this.input = input;

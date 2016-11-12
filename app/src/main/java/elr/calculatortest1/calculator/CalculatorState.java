@@ -1,4 +1,6 @@
-package elr.calculatortest1;
+package elr.calculatortest1.calculator;
+
+import elr.calculatortest1.operator.BinaryOperator;
 
 /**
  * Created by Emmet on 05/11/2016.

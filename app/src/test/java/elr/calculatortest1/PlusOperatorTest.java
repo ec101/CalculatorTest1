@@ -2,6 +2,8 @@ package elr.calculatortest1;
 
 import org.junit.Test;
 
+import elr.calculatortest1.operator.PlusOperator;
+
 import static org.junit.Assert.*;
 
 /**
@@ -10,8 +12,8 @@ import static org.junit.Assert.*;
 public class PlusOperatorTest {
     @Test
     public void calculate() throws Exception {
-        Double result = PlusOperator.PLUS_OPERATOR.calculate(Double.valueOf(1),Double.valueOf(2));
-        assertTrue("Plus NOT working correctly!", result.doubleValue()==3.0);
+        Double result = PlusOperator.INSTANCE.calculate(1.0, 2.0);
+        assertTrue("Plus NOT working correctly!", result == 3.0);
     }
 
 }

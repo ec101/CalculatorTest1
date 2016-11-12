@@ -6,9 +6,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import elr.calculatortest1.calculator.CalculatorState;
+import elr.calculatortest1.calculator.DefaultCalculatorState;
+import elr.calculatortest1.io.DefaultUserInputProvider;
+import elr.calculatortest1.io.DivideButtonHandler;
+import elr.calculatortest1.io.EqualsButtonHandler;
+import elr.calculatortest1.io.MinusButtonHandler;
+import elr.calculatortest1.io.MultiplyButtonHandler;
+import elr.calculatortest1.io.OperatorInputHandler;
+import elr.calculatortest1.io.PlusButtonHandler;
+
 public class MainActivity extends AppCompatActivity {
 
-    private CalculatorState calculatorState;
+    private final CalculatorState calculatorState;
+    private DefaultUserInputProvider inputProvider;
 
     public MainActivity(){
         this.calculatorState = new DefaultCalculatorState();
@@ -19,9 +30,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DefaultUserInputProvider inputParser = new DefaultUserInputProvider(this);
-        final PlusButtonHandler plusHandler = new PlusButtonHandler(calculatorState, inputParser);
-        final EqualsButtonHandler equalsHandler = new EqualsButtonHandler(calculatorState, inputParser);
+        EditText inputField = (EditText)findViewById(R.id.edit_text);
+        inputProvider = new DefaultUserInputProvider(inputField);
+        final OperatorInputHandler plusHandler = new PlusButtonHandler(calculatorState, inputProvider);
+        final OperatorInputHandler minusHandler = new MinusButtonHandler(calculatorState, inputProvider);
+        final OperatorInputHandler multiplyHandler = new MultiplyButtonHandler(calculatorState, inputProvider);
+        final OperatorInputHandler divideHandler = new DivideButtonHandler(calculatorState, inputProvider);
+        final OperatorInputHandler equalsHandler = new EqualsButtonHandler(calculatorState, inputProvider);
 
         final Button plusButton = (Button)findViewById(R.id.plus_button);
         View.OnClickListener plus_listener = new View.OnClickListener(){
@@ -37,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener minus_listener = new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                minusHandler.handleInput();
+                updateDisplay();
             }
         };
         minusButton.setOnClickListener(minus_listener);
@@ -45,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener multiply_listener = new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                multiplyHandler.handleInput();
+                updateDisplay();
             }
         };
         multiplyButton.setOnClickListener(multiply_listener);
@@ -53,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener divide_listener = new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                divideHandler.handleInput();
+                updateDisplay();
             }
         };
         divideButton.setOnClickListener(divide_listener);
@@ -69,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDisplay() {
-        EditText textField = (EditText)findViewById(R.id.edit_text);
-            textField.setText(Double.toString(this.calculatorState.getCurrentValue()));
+        inputProvider.displayData(this.calculatorState.getCurrentValue());
     }
 }

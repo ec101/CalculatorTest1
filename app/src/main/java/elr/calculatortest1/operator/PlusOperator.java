@@ -1,12 +1,12 @@
-package elr.calculatortest1;
+package elr.calculatortest1.operator;
 
 /**
  * Created by lquinn on 24/10/2016.
  */
 
-class PlusOperator extends AbstractBinaryOperator {
+public class PlusOperator extends AbstractBinaryOperator {
 
-    public static final PlusOperator PLUS_OPERATOR = new PlusOperator();
+    public static final PlusOperator INSTANCE = new PlusOperator();
 
     private PlusOperator(){
         super();
