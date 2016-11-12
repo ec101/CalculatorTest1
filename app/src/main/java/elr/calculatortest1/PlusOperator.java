@@ -5,6 +5,13 @@ package elr.calculatortest1;
  */
 
 class PlusOperator extends AbstractBinaryOperator {
+
+    public static final PlusOperator PLUS_OPERATOR = new PlusOperator();
+
+    private PlusOperator(){
+        super();
+    }
+
     @Override
     public Double calculate(Double x, Double y) {
         return x + y ;

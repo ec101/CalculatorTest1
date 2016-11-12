@@ -10,9 +10,7 @@ import static org.junit.Assert.*;
 public class PlusOperatorTest {
     @Test
     public void calculate() throws Exception {
-
-        PlusOperator rorysPlusOperator = new PlusOperator();
-        Double result = rorysPlusOperator.calculate(Double.valueOf(1),Double.valueOf(2));
+        Double result = PlusOperator.PLUS_OPERATOR.calculate(Double.valueOf(1),Double.valueOf(2));
         assertTrue("Plus NOT working correctly!", result.doubleValue()==3.0);
     }
 
