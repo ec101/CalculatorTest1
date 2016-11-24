@@ -2,6 +2,7 @@ package elr.calculatortest1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class UserInputParser {
 
@@ -12,7 +13,7 @@ public class UserInputParser {
     }
 
     public double getUserInput(){
-        EditText inputField = (EditText)activity.findViewById(R.id.edit_text);
+        TextView inputField = (TextView)activity.findViewById(R.id.edit_text);
         return Double.valueOf(inputField.getText().toString());
     }
 }

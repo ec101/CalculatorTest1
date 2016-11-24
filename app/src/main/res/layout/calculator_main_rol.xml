@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:columnCount="4"
+    android:rowCount="5"
+    android:orientation="horizontal">
+
+    <EditText
+        android:layout_columnSpan="4"
+        android:layout_gravity="fill_horizontal"
+        android:inputType="number"
+        android:hint="0.0" />
+
+    <Button android:text="@string/plus"
+        android:layout_height="80dp" />
+    <Button android:text="@string/minus"
+        android:layout_height="80dp" />
+    <Button android:text="@string/multiply"
+        android:layout_height="80dp" />
+    <Button android:text="@string/divide"
+        android:layout_height="80dp" />
+    <Button android:text="@string/one"
+        android:layout_height="80dp" />
+    <Button android:text="@string/two"
+        android:layout_height="80dp" />
+    <Button android:text="@string/three"
+        android:layout_height="80dp" />
+    <Button
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill_vertical"
+        android:text="@string/clear"
+        android:textSize="18sp" />
+
+    <Button android:text="@string/four"
+        android:layout_height="80dp" />
+    <Button android:text="@string/five"
+        android:layout_height="80dp" />
+    <Button android:text="@string/six"
+        android:layout_height="80dp" />
+    <Button android:text="@string/seven"
+        android:layout_height="80dp" />
+    <Button android:text="@string/eight"
+        android:layout_height="80dp" />
+    <Button android:text="@string/nine"
+        android:layout_height="80dp" />
+    <Button
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill_vertical"
+        android:text="@string/equals" />
+    <Button
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:layout_height="80dp"
+        android:text="@string/zero" />
+
+    <Button android:text="@string/decimalPoint"
+        android:layout_height="80dp" />
+
+</GridLayout>
