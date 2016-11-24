@@ -7,5 +7,6 @@ package elr.calculatortest1.io;
 interface OutputDisplay {
 
     void displayData(double value);
-    
+
+    void clearDisplay();
 }

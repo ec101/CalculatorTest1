@@ -16,7 +16,7 @@
             android:layout_columnSpan="4"
             android:layout_gravity="fill_horizontal"
             android:inputType="number"
-            android:text="0.0" />
+            android:hint="0.0" />
 
         <Button
             android:id="@+id/plus_button"

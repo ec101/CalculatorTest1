@@ -2,6 +2,7 @@ package elr.calculatortest1.io;
 
 import android.widget.EditText;
 
+import elr.calculatortest1.R;
 import elr.calculatortest1.io.UserInputProvider;
 
 public class DefaultUserInputProvider implements UserInputProvider, OutputDisplay {
@@ -20,5 +21,10 @@ public class DefaultUserInputProvider implements UserInputProvider, OutputDispla
     @Override
     public void displayData(double value) {
         this.userDisplay.setText(Double.toString(value));
+    }
+
+    @Override
+    public void clearDisplay() {
+        this.userDisplay.getText().clear();
     }
 }

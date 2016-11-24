@@ -1,4 +1,4 @@
-package elr.calculatortest1;
+package elr.calculatortest1.calculator;
 
 import org.junit.Test;
 

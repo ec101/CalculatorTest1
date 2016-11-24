@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         EditText inputField = (EditText)findViewById(R.id.edit_text);
+
         inputProvider = new DefaultUserInputProvider(inputField);
         final OperatorInputHandler plusHandler = new PlusButtonHandler(calculatorState, inputProvider);
         final OperatorInputHandler minusHandler = new MinusButtonHandler(calculatorState, inputProvider);
@@ -87,9 +88,22 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         equalsButton.setOnClickListener(equals_listener);
+
+        final Button clearButton = (Button)findViewById(R.id.clear_button);
+        View.OnClickListener clear_listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                clearDisplay();
+            }
+        };
+        clearButton.setOnClickListener(clear_listener);
     }
 
     private void updateDisplay() {
         inputProvider.displayData(this.calculatorState.getCurrentValue());
+    }
+
+    private void clearDisplay() {
+        inputProvider.clearDisplay();
     }
 }
