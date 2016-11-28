@@ -9,7 +9,7 @@ public class DefaultUserInputProvider implements UserInputProvider, OutputDispla
 
     private final EditText userDisplay;
 
-    public DefaultUserInputProvider(EditText userDisplay){
+    public DefaultUserInputProvider(EditText userDisplay) {
         this.userDisplay = userDisplay;
     }
 

@@ -17,7 +17,7 @@ public class MultiplyButtonHandlerTest {
     @Test
     public void handleDUmmyInput() throws Exception {
         CalculatorState calculatorState = new DefaultCalculatorState();
-        UserInputProvider input = new DummyUserInputProvider();
+        UserInput input = new DummyUserInputProvider();
         MultiplyButtonHandler handler = new MultiplyButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();
@@ -31,7 +31,7 @@ public class MultiplyButtonHandlerTest {
         values.add(6.0);
         values.add(2.0);
         values.add(5.0);
-        UserInputProvider input = new DefinedUserInputProvider(values);
+        UserInput input = new DefinedUserInputProvider(values);
         MultiplyButtonHandler handler = new MultiplyButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();

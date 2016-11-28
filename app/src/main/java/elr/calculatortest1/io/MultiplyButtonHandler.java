@@ -10,7 +10,7 @@ import elr.calculatortest1.operator.MultiplyOperator;
 
 public class MultiplyButtonHandler extends AbstractOperatorInputHandler {
 
-    public MultiplyButtonHandler(CalculatorState calculatorState, UserInputProvider input) {
+    public MultiplyButtonHandler(CalculatorState calculatorState, UserInput input) {
         super(calculatorState, input);
     }
 

@@ -17,7 +17,7 @@ public class PlusButtonHandlerTest {
     @Test
     public void handleBasicInput() throws Exception {
         CalculatorState calculatorState = new DefaultCalculatorState();
-        UserInputProvider input = new DummyUserInputProvider();
+        UserInput input = new DummyUserInputProvider();
         PlusButtonHandler handler = new PlusButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();
@@ -31,7 +31,7 @@ public class PlusButtonHandlerTest {
         values.add(3.0);
         values.add(4.0);
         values.add(5.0);
-        UserInputProvider input = new DefinedUserInputProvider(values);
+        UserInput input = new DefinedUserInputProvider(values);
         PlusButtonHandler handler = new PlusButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();

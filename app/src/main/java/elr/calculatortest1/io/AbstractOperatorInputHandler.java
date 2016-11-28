@@ -10,9 +10,9 @@ import elr.calculatortest1.operator.BinaryOperator;
 abstract class AbstractOperatorInputHandler implements OperatorInputHandler {
 
     private final CalculatorState calculatorState;
-    private final UserInputProvider input;
+    private final UserInput input;
 
-    AbstractOperatorInputHandler(final CalculatorState calculatorState, final UserInputProvider input){
+    AbstractOperatorInputHandler(final CalculatorState calculatorState, final UserInput input){
         super();
         this.calculatorState = calculatorState;
         this.input = input;
@@ -22,6 +22,7 @@ abstract class AbstractOperatorInputHandler implements OperatorInputHandler {
     public void handleInput() {
         double value = this.input.getUserInput();
         this.calculatorState.updateState(value, getBinaryOperator());
+        input.clearCurrentInput();
     }
 
     protected abstract BinaryOperator getBinaryOperator();

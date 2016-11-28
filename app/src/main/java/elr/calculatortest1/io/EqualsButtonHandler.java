@@ -9,9 +9,9 @@ import elr.calculatortest1.calculator.CalculatorState;
 public class EqualsButtonHandler implements OperatorInputHandler {
 
     private final CalculatorState calculatorState;
-    private final UserInputProvider input;
+    private final UserInput input;
 
-    public EqualsButtonHandler(final CalculatorState calculatorState, final UserInputProvider input){
+    public EqualsButtonHandler(final CalculatorState calculatorState, final UserInput input){
         super();
         this.calculatorState = calculatorState;
         this.input = input;
@@ -21,5 +21,6 @@ public class EqualsButtonHandler implements OperatorInputHandler {
     public void handleInput() {
         double value = this.input.getUserInput();
         this.calculatorState.updateState(value);
+        this.input.clearCurrentInput();
     }
 }

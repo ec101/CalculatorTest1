@@ -10,7 +10,7 @@ import elr.calculatortest1.operator.DivideOperator;
 
 public class DivideButtonHandler extends AbstractOperatorInputHandler {
 
-    public DivideButtonHandler(CalculatorState calculatorState, UserInputProvider input) {
+    public DivideButtonHandler(CalculatorState calculatorState, UserInput input) {
         super(calculatorState, input);
     }
 

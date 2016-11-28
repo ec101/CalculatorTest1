@@ -17,7 +17,7 @@ public class MinusButtonHandlerTest {
     @Test
     public void handleDummyInput() throws Exception {
         CalculatorState calculatorState = new DefaultCalculatorState();
-        UserInputProvider input = new DummyUserInputProvider();
+        UserInput input = new DummyUserInputProvider();
         MinusButtonHandler handler = new MinusButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();
@@ -31,7 +31,7 @@ public class MinusButtonHandlerTest {
         values.add(12.0);
         values.add(1.0);
         values.add(6.0);
-        UserInputProvider input = new DefinedUserInputProvider(values);
+        UserInput input = new DefinedUserInputProvider(values);
         MinusButtonHandler handler = new MinusButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();

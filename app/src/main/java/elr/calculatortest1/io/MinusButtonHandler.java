@@ -10,7 +10,7 @@ import elr.calculatortest1.operator.MinusOperator;
 
 public class MinusButtonHandler extends AbstractOperatorInputHandler {
 
-    public MinusButtonHandler(CalculatorState calculatorState, UserInputProvider input) {
+    public MinusButtonHandler(CalculatorState calculatorState, UserInput input) {
         super(calculatorState, input);
     }
 

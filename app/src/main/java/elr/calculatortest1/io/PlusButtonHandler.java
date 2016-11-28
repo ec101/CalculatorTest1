@@ -10,7 +10,7 @@ import elr.calculatortest1.operator.PlusOperator;
 
 public class PlusButtonHandler extends AbstractOperatorInputHandler {
 
-    public PlusButtonHandler(final CalculatorState calculatorState, final UserInputProvider input){
+    public PlusButtonHandler(final CalculatorState calculatorState, final UserInput input){
         super(calculatorState, input);
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Emmet on 13/11/2016.
  */
 
-public class DefinedUserInputProvider implements UserInputProvider {
+public class DefinedUserInputProvider implements UserInput {
 
     private final List<Double> values;
 
@@ -21,5 +21,15 @@ public class DefinedUserInputProvider implements UserInputProvider {
             return this.values.remove(0);
         }
         return 0;
+    }
+
+    @Override
+    public void updateCurrentInput(double value) {
+
+    }
+
+    @Override
+    public void clearCurrentInput() {
+
     }
 }
