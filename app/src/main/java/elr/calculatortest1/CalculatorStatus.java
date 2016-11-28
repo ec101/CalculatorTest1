@@ -8,7 +8,6 @@ import android.util.Log;
 
 public class CalculatorStatus {
     private Double total=0.0;
-    private Double currentValue=0.0;
     private String currentOperator="empty";
 
     void printTotal (){
@@ -21,73 +20,62 @@ public class CalculatorStatus {
         Log.i("MyApp", "I am returning the new total"+total.toString());
         return total;
     }
-    Double returnCurrentValue() {
-        return currentValue;
-    }
 
-    void setCurrentValue(Double value){
-        if (currentValue==0.0) {
-            currentValue = value;
-        }
-        else
-        {
-            currentValue = currentValue * 10.0 + value;
-        }
+    void resetStatus() {
+        total = 0.0;
+        currentOperator="empty";
     }
-    private void computeNew () {
+    private void computeNew (Double value) {
 
         switch (currentOperator){
             case "plus" :
                 PlusOperator myPlusOperator = new PlusOperator();
-                total = myPlusOperator.calculate(total,currentValue);
-                Log.i("MyApp", "I have recognised that this is a plus"+total.toString()+" "+currentValue.toString());
+                total = myPlusOperator.calculate(total,value);
+                Log.i("MyApp", "I have recognised that this is a plus"+total.toString()+" "+value.toString());
                 break;
             case "minus" :
                 MinusOperator myMinusOperator = new MinusOperator();
-                total = myMinusOperator.calculate(total,currentValue);
+                total = myMinusOperator.calculate(total,value);
                 break;
             case "multiply" :
                 MultiplyOperator myMultiplyOperator = new MultiplyOperator();
-                total = myMultiplyOperator.calculate(total,currentValue);
+                total = myMultiplyOperator.calculate(total,value);
                 break;
             case "divide" :
                 DivideOperator myDivideOperator = new DivideOperator();
-                total = myDivideOperator.calculate(total,currentValue);
+                total = myDivideOperator.calculate(total,value);
                 break;
             default :
-                total = currentValue;
+                total = value;
         }
     }
 
-    void addPlus () {
-        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+currentValue.toString());
-        computeNew();
+    void addPlus (Double value) {
+        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+value.toString());
+        computeNew(value);
         currentOperator="plus";
-        currentValue=0.0;
+
     }
-    void addMinus () {
-        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+currentValue.toString());
-        computeNew();
+    void addMinus (Double value) {
+        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+value.toString());
+        computeNew(value);
         currentOperator="minus";
-        currentValue=0.0;
     }
-    void addMultiply () {
-        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+currentValue.toString());
-        computeNew();
+    void addMultiply (Double value) {
+        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+value.toString());
+        computeNew(value);
         currentOperator="multiply";
-        currentValue=0.0;
     }
-    void addDivide () {
-        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+currentValue.toString());
-        computeNew();
+    void addDivide (Double value) {
+        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+value.toString());
+        computeNew(value);
         currentOperator="divide";
-        currentValue=0.0;
     }
-    void equals () {
-        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+currentValue.toString());
-        computeNew();
+    void equals (Double value) {
+        Log.i("MyApp", "Entering the class, the value of total is"+total.toString()+" "+value.toString());
+        computeNew(value);
         currentOperator="empty";
-        currentValue=0.0;
+
     }
 
 }

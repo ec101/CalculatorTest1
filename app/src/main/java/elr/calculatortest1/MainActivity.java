@@ -1,7 +1,12 @@
 package elr.calculatortest1;
 
+import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.icu.text.DecimalFormat;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +22,10 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.math.RoundingMode;
+
+import static java.math.RoundingMode.*;
+
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -25,22 +34,29 @@ public class MainActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
+    @TargetApi(Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final TextView resultTextField = (TextView) findViewById(R.id.edit_text);
-
+        final DisplayStatus myDisplay = new DisplayStatus();
         final CalculatorStatus myStatus = new CalculatorStatus();
+
+
   //      final UserInputParser inputParser = new UserInputParser(this);
+
         final Button plusButton = (Button) findViewById(R.id.plus_button);
         View.OnClickListener plus_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Log.i("MyApp", "I am here performing the addition");
-                myStatus.addPlus();
+                myStatus.addPlus(myDisplay.returnDisplayValue());
+                myDisplay.resetDisplayValue();
                 resultTextField.setText(myStatus.returnTotal().toString());
+                resultTextField.setTextColor(Color.BLUE);
             }
         };
         plusButton.setOnClickListener(plus_listener);
@@ -49,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener minus_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.addMinus();
+                myStatus.addMinus(myDisplay.returnDisplayValue());
+                myDisplay.resetDisplayValue();
                 resultTextField.setText(myStatus.returnTotal().toString());
+                resultTextField.setTextColor(Color.BLUE);
             }
         };
         minusButton.setOnClickListener(minus_listener);
@@ -59,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener multiply_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.addMultiply();
+                myStatus.addMultiply(myDisplay.returnDisplayValue());
+                myDisplay.resetDisplayValue();
                 resultTextField.setText(myStatus.returnTotal().toString());
+                resultTextField.setTextColor(Color.BLUE);
             }
         };
         multiplyButton.setOnClickListener(multiply_listener);
@@ -69,8 +89,10 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener divide_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.addDivide();
+                myStatus.addDivide(myDisplay.returnDisplayValue());
+                myDisplay.resetDisplayValue();
                 resultTextField.setText(myStatus.returnTotal().toString());
+                resultTextField.setTextColor(Color.BLUE);
             }
         };
         divideButton.setOnClickListener(divide_listener);
@@ -81,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener one_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(1.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(1.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         oneButton.setOnClickListener(one_listener);
@@ -91,8 +114,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener two_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(2.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(2.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         twoButton.setOnClickListener(two_listener);
@@ -101,8 +125,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener three_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(3.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(3.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         threeButton.setOnClickListener(three_listener);
@@ -111,8 +136,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener four_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(4.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(4.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         fourButton.setOnClickListener(four_listener);
@@ -121,8 +147,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener five_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(5.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(5.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         fiveButton.setOnClickListener(five_listener);
@@ -131,8 +158,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener six_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(6.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(6.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         sixButton.setOnClickListener(six_listener);
@@ -141,8 +169,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener seven_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(7.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(7.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         sevenButton.setOnClickListener(seven_listener);
@@ -151,8 +180,9 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener eight_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(8.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(8.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         eightButton.setOnClickListener(eight_listener);
@@ -161,22 +191,63 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener nine_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.setCurrentValue(9.0);
-                resultTextField.setText(myStatus.returnCurrentValue().toString());
+                myDisplay.setCurrentValue(9.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
             }
         };
         nineButton.setOnClickListener(nine_listener);
-        
-        
+
+        final Button zeroButton = (Button) findViewById(R.id.zero_button);
+        View.OnClickListener zero_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDisplay.setCurrentValue(0.0);
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
+            }
+        };
+        zeroButton.setOnClickListener(zero_listener);
+
         final Button equalsButton = (Button) findViewById(R.id.equals_button);
         View.OnClickListener equals_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myStatus.equals();
+                myStatus.equals(myDisplay.returnDisplayValue());
+                myDisplay.setDisplayValue(myStatus.returnTotal());
                 resultTextField.setText(myStatus.returnTotal().toString());
+                resultTextField.setTextColor(Color.BLUE);
             }
         };
         equalsButton.setOnClickListener(equals_listener);
+
+        final Button clearButton = (Button) findViewById(R.id.clear_button);
+        View.OnClickListener clear_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myStatus.resetStatus();
+                myDisplay.resetDisplayValue();
+                resultTextField.setText(myStatus.returnTotal().toString());
+                resultTextField.setTextColor(Color.GRAY);
+            }
+        };
+
+
+        clearButton.setOnClickListener(clear_listener);
+
+        final Button decimalButton = (Button) findViewById(R.id.decimal_button);
+        View.OnClickListener decimal_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDisplay.setDecimal();
+                resultTextField.setText(myDisplay.returnDisplayValue().toString());
+                resultTextField.setTextColor(Color.GRAY);
+            }
+        };
+
+        decimalButton.setOnClickListener(decimal_listener);
+
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
