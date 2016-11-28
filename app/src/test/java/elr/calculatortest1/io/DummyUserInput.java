@@ -3,16 +3,20 @@ package elr.calculatortest1.io;
 /**
  * Created by Emmet on 13/11/2016.
  */
-class DummyUserInputProvider implements UserInput {
+class DummyUserInput implements UserInput {
 
     @Override
-    public double getUserInput() {
+    public double getCurrentInput() {
         return 2.0;
     }
 
     @Override
     public void updateCurrentInput(double value) {
 
+    }
+
+    @Override
+    public void decimalPoint() {
     }
 
     @Override

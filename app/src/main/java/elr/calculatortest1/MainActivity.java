@@ -10,7 +10,6 @@ import android.widget.TextView;
 import elr.calculatortest1.calculator.CalculatorState;
 import elr.calculatortest1.calculator.DefaultCalculatorState;
 import elr.calculatortest1.io.DefaultUserInput;
-import elr.calculatortest1.io.DefaultUserInputProvider;
 import elr.calculatortest1.io.DivideButtonHandler;
 import elr.calculatortest1.io.EightInputHandlerImpl;
 import elr.calculatortest1.io.EqualsButtonHandler;
@@ -33,11 +32,12 @@ import elr.calculatortest1.io.ZeroInputHandlerImpl;
 public class MainActivity extends AppCompatActivity {
 
     private final CalculatorState calculatorState;
-    private DefaultUserInput userInput;
+    private final UserInput userInput;
     private TextView inputField;
 
-    public MainActivity(){
+    public MainActivity() {
         this.calculatorState = new DefaultCalculatorState();
+        this.userInput = new DefaultUserInput();
     }
 
     @Override
@@ -45,9 +45,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.inputField = (TextView)findViewById(R.id.edit_text);
+        this.inputField = (TextView) findViewById(R.id.edit_text);
 
-        this.userInput = new DefaultUserInput();
         final OperatorInputHandler plusHandler = new PlusButtonHandler(calculatorState, this.userInput);
         final OperatorInputHandler minusHandler = new MinusButtonHandler(calculatorState, this.userInput);
         final OperatorInputHandler multiplyHandler = new MultiplyButtonHandler(calculatorState, this.userInput);
@@ -64,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         final NumberInputHandler nineHandler = new NineInputHandlerImpl(this.userInput);
         final NumberInputHandler zeroHandler = new ZeroInputHandlerImpl(this.userInput);
 
-        final Button oneButton = (Button)findViewById(R.id.one_button);
-        View.OnClickListener one_listener = new View.OnClickListener(){
+        final Button oneButton = (Button) findViewById(R.id.one_button);
+        View.OnClickListener one_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 oneHandler.handleInput();
@@ -74,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
         };
         oneButton.setOnClickListener(one_listener);
 
-        final Button twoButton = (Button)findViewById(R.id.two_button);
-        View.OnClickListener two_listener = new View.OnClickListener(){
+        final Button twoButton = (Button) findViewById(R.id.two_button);
+        View.OnClickListener two_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 twoHandler.handleInput();
@@ -84,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
         };
         twoButton.setOnClickListener(two_listener);
 
-        final Button threeButton = (Button)findViewById(R.id.three_button);
-        View.OnClickListener three_listener = new View.OnClickListener(){
+        final Button threeButton = (Button) findViewById(R.id.three_button);
+        View.OnClickListener three_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 threeHandler.handleInput();
@@ -94,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         };
         threeButton.setOnClickListener(three_listener);
 
-        final Button fourButton = (Button)findViewById(R.id.four_button);
-        View.OnClickListener four_listener = new View.OnClickListener(){
+        final Button fourButton = (Button) findViewById(R.id.four_button);
+        View.OnClickListener four_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fourHandler.handleInput();
@@ -104,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
         };
         fourButton.setOnClickListener(four_listener);
 
-        final Button fiveButton = (Button)findViewById(R.id.five_button);
-        View.OnClickListener five_listener = new View.OnClickListener(){
+        final Button fiveButton = (Button) findViewById(R.id.five_button);
+        View.OnClickListener five_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fiveHandler.handleInput();
@@ -114,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
         };
         fiveButton.setOnClickListener(five_listener);
 
-        final Button sixButton = (Button)findViewById(R.id.six_button);
-        View.OnClickListener six_listener = new View.OnClickListener(){
+        final Button sixButton = (Button) findViewById(R.id.six_button);
+        View.OnClickListener six_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sixHandler.handleInput();
@@ -124,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
         };
         sixButton.setOnClickListener(six_listener);
 
-        final Button sevenButton = (Button)findViewById(R.id.seven_button);
-        View.OnClickListener seven_listener = new View.OnClickListener(){
+        final Button sevenButton = (Button) findViewById(R.id.seven_button);
+        View.OnClickListener seven_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sevenHandler.handleInput();
@@ -134,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
         };
         sevenButton.setOnClickListener(seven_listener);
 
-        final Button eightButton = (Button)findViewById(R.id.eight_button);
-        View.OnClickListener eight_listener = new View.OnClickListener(){
+        final Button eightButton = (Button) findViewById(R.id.eight_button);
+        View.OnClickListener eight_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 eightHandler.handleInput();
@@ -144,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
         };
         eightButton.setOnClickListener(eight_listener);
 
-        final Button nineButton = (Button)findViewById(R.id.nine_button);
-        View.OnClickListener nine_listener = new View.OnClickListener(){
+        final Button nineButton = (Button) findViewById(R.id.nine_button);
+        View.OnClickListener nine_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nineHandler.handleInput();
@@ -154,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
         };
         nineButton.setOnClickListener(nine_listener);
 
-        final Button zeroButton = (Button)findViewById(R.id.zero_button);
-        View.OnClickListener zero_listener = new View.OnClickListener(){
+        final Button zeroButton = (Button) findViewById(R.id.zero_button);
+        View.OnClickListener zero_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 zeroHandler.handleInput();
@@ -164,8 +163,8 @@ public class MainActivity extends AppCompatActivity {
         };
         zeroButton.setOnClickListener(zero_listener);
 
-        final Button plusButton = (Button)findViewById(R.id.plus_button);
-        View.OnClickListener plus_listener = new View.OnClickListener(){
+        final Button plusButton = (Button) findViewById(R.id.plus_button);
+        View.OnClickListener plus_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 plusHandler.handleInput();
@@ -174,8 +173,8 @@ public class MainActivity extends AppCompatActivity {
         };
         plusButton.setOnClickListener(plus_listener);
 
-        final Button minusButton = (Button)findViewById(R.id.minus_button);
-        View.OnClickListener minus_listener = new View.OnClickListener(){
+        final Button minusButton = (Button) findViewById(R.id.minus_button);
+        View.OnClickListener minus_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 minusHandler.handleInput();
@@ -184,8 +183,8 @@ public class MainActivity extends AppCompatActivity {
         };
         minusButton.setOnClickListener(minus_listener);
 
-        final Button multiplyButton = (Button)findViewById(R.id.multiply_button);
-        View.OnClickListener multiply_listener = new View.OnClickListener(){
+        final Button multiplyButton = (Button) findViewById(R.id.multiply_button);
+        View.OnClickListener multiply_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 multiplyHandler.handleInput();
@@ -194,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
         };
         multiplyButton.setOnClickListener(multiply_listener);
 
-        final Button divideButton = (Button)findViewById(R.id.divide_button);
-        View.OnClickListener divide_listener = new View.OnClickListener(){
+        final Button divideButton = (Button) findViewById(R.id.divide_button);
+        View.OnClickListener divide_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 divideHandler.handleInput();
@@ -204,8 +203,8 @@ public class MainActivity extends AppCompatActivity {
         };
         divideButton.setOnClickListener(divide_listener);
 
-        final Button equalsButton = (Button)findViewById(R.id.equals_button);
-        View.OnClickListener equals_listener = new View.OnClickListener(){
+        final Button equalsButton = (Button) findViewById(R.id.equals_button);
+        View.OnClickListener equals_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 equalsHandler.handleInput();
@@ -214,15 +213,24 @@ public class MainActivity extends AppCompatActivity {
         };
         equalsButton.setOnClickListener(equals_listener);
 
-        final Button clearButton = (Button)findViewById(R.id.clear_button);
-        View.OnClickListener clear_listener = new View.OnClickListener(){
+        final Button clearButton = (Button) findViewById(R.id.clear_button);
+        View.OnClickListener clear_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clearDisplay();
                 userInput.clearCurrentInput();
+                clearDisplay();
             }
         };
         clearButton.setOnClickListener(clear_listener);
+
+        final Button decimalButton = (Button) findViewById(R.id.decimal_button);
+        View.OnClickListener decimal_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userInput.decimalPoint();
+            }
+        };
+        decimalButton.setOnClickListener(decimal_listener);
     }
 
     private void updateDisplay(double value) {
@@ -230,6 +238,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearDisplay() {
-        this.inputField.setText("0.0");
+        this.inputField.setText(R.string.zero);
     }
 }

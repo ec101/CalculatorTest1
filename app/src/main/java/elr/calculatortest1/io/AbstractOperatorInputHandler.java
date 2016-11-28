@@ -20,7 +20,7 @@ abstract class AbstractOperatorInputHandler implements OperatorInputHandler {
 
     @Override
     public void handleInput() {
-        double value = this.input.getUserInput();
+        double value = this.input.getCurrentInput();
         this.calculatorState.updateState(value, getBinaryOperator());
         input.clearCurrentInput();
     }

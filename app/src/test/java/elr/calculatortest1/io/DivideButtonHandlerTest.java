@@ -17,7 +17,7 @@ public class DivideButtonHandlerTest {
     @Test
     public void handleInput() throws Exception {
         CalculatorState calculatorState = new DefaultCalculatorState();
-        UserInput input = new DummyUserInputProvider();
+        UserInput input = new DummyUserInput();
         DivideButtonHandler handler = new DivideButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();
@@ -31,7 +31,7 @@ public class DivideButtonHandlerTest {
         values.add(24.0);
         values.add(2.0);
         values.add(3.0);
-        UserInput input = new DefinedUserInputProvider(values);
+        UserInput input = new DefinedUserInput(values);
         DivideButtonHandler handler = new DivideButtonHandler(calculatorState, input);
         handler.handleInput();
         handler.handleInput();

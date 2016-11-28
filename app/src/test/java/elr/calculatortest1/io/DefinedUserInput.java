@@ -6,17 +6,17 @@ import java.util.List;
  * Created by Emmet on 13/11/2016.
  */
 
-public class DefinedUserInputProvider implements UserInput {
+public class DefinedUserInput implements UserInput {
 
     private final List<Double> values;
 
-    public DefinedUserInputProvider(List<Double> values){
+    public DefinedUserInput(List<Double> values){
         super();
         this.values = values;
     }
 
     @Override
-    public double getUserInput() {
+    public double getCurrentInput() {
         if(this.values.size() > 0) {
             return this.values.remove(0);
         }
@@ -25,6 +25,11 @@ public class DefinedUserInputProvider implements UserInput {
 
     @Override
     public void updateCurrentInput(double value) {
+
+    }
+
+    @Override
+    public void decimalPoint() {
 
     }
 
