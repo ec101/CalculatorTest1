@@ -9,8 +9,8 @@ import elr.calculatortest1.operator.BinaryOperator;
 
 abstract class AbstractOperatorInputHandler implements OperatorInputHandler {
 
-    private final CalculatorState calculatorState;
-    private final UserInput input;
+    protected final CalculatorState calculatorState;
+    protected final UserInput input;
 
     AbstractOperatorInputHandler(final CalculatorState calculatorState, final UserInput input){
         super();

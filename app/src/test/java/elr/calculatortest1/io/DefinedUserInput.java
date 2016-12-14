@@ -24,7 +24,22 @@ public class DefinedUserInput implements UserInput {
     }
 
     @Override
-    public void updateCurrentInput(double value) {
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public void setNegativeNumber() {
+
+    }
+
+    @Override
+    public void updateCurrentInput(int value) {
+
+    }
+
+    @Override
+    public void setCurrentInput(double value) {
 
     }
 

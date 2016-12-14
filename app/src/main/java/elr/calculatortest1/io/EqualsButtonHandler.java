@@ -21,6 +21,6 @@ public class EqualsButtonHandler implements OperatorInputHandler {
     public void handleInput() {
         double value = this.input.getCurrentInput();
         this.calculatorState.updateState(value);
-        this.input.clearCurrentInput();
+        this.input.setCurrentInput(this.calculatorState.getCurrentValue());
     }
 }

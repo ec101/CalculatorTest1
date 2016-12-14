@@ -9,7 +9,7 @@ public class ZeroInputHandlerImpl extends NumberInputHandler {
     }
 
     @Override
-    protected double getInputValue() {
-        return 0.0;
+    protected int getInputValue() {
+        return 0;
     }
 }

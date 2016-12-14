@@ -6,7 +6,13 @@ package elr.calculatortest1.io;
 
 public interface UserInput{
 
-    void updateCurrentInput(double value);
+    boolean isEmpty();
+
+    void setNegativeNumber();
+
+    void updateCurrentInput(int value);
+
+    void setCurrentInput(double value);
 
     void decimalPoint();
 

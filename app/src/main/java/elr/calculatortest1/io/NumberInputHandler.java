@@ -17,6 +17,6 @@ public abstract class NumberInputHandler {
         this.userInput.updateCurrentInput(getInputValue());
     }
 
-    protected abstract double getInputValue();
+    protected abstract int getInputValue();
 
 }

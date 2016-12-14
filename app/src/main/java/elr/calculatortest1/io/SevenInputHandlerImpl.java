@@ -9,7 +9,7 @@ public class SevenInputHandlerImpl extends NumberInputHandler {
     }
 
     @Override
-    protected double getInputValue() {
-        return 7.0;
+    protected int getInputValue() {
+        return 7;
     }
 }

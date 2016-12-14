@@ -9,7 +9,7 @@ public class EightInputHandlerImpl extends NumberInputHandler {
     }
 
     @Override
-    protected double getInputValue() {
-        return 8.0;
+    protected int getInputValue() {
+        return 8;
     }
 }

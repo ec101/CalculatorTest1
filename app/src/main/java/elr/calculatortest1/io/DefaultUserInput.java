@@ -2,6 +2,8 @@ package elr.calculatortest1.io;
 
 import java.math.BigDecimal;
 
+import elr.calculatortest1.R;
+
 import static android.os.Build.VERSION_CODES.BASE;
 
 /**
@@ -10,37 +12,52 @@ import static android.os.Build.VERSION_CODES.BASE;
 
 public class DefaultUserInput implements UserInput {
 
-    private BigDecimal currentInput;
-    private boolean hasDecimalPoint;
-    private BigDecimal decimal;
+    private StringBuilder currentInput;
+    private boolean negativeNumber;
 
     public DefaultUserInput() {
         super();
-        this.currentInput = BigDecimal.ZERO;
-        this.decimal = BigDecimal.TEN;
+        this.currentInput = new StringBuilder();
     }
 
-    public void updateCurrentInput(double value){
-        BigDecimal userInputValue = new BigDecimal(value);
-        if(hasDecimalPoint){
-            userInputValue = userInputValue.divide(this.decimal);
-            this.currentInput = this.currentInput.add(userInputValue);
-            this.decimal = decimal.multiply(BigDecimal.TEN);
-        }else{
-            this.currentInput = this.currentInput.multiply(BigDecimal.TEN).add(userInputValue);
+    @Override
+    public boolean isEmpty() {
+        return this.currentInput.length() == 0;
+    }
+
+    @Override
+    public void setNegativeNumber() {
+        this.negativeNumber = true;
+    }
+
+    public void updateCurrentInput(int value){
+        if(this.isEmpty() && this.negativeNumber){
+            this.currentInput.append('-');
         }
+        this.currentInput.append(value);
+    }
+
+    @Override
+    public void setCurrentInput(double value) {
+        this.clearCurrentInput();
+        this.currentInput.append(value);
     }
 
     @Override
     public void decimalPoint() {
-        this.hasDecimalPoint = true;
+        this.currentInput.append('.');
     }
 
     public void clearCurrentInput(){
-        this.currentInput = BigDecimal.ZERO;
+        this.currentInput = new StringBuilder();
+        this.negativeNumber = false;
     }
 
     public double getCurrentInput(){
-        return this.currentInput.doubleValue();
+        String value = currentInput.toString();
+        if(value.equals("-")){
+            return 0.0;
+        }
+        return Double.valueOf(value);
     }
 }

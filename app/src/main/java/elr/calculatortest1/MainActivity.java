@@ -238,6 +238,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearDisplay() {
-        this.inputField.setText(R.string.zero);
+        this.inputField.setText("0.0");
     }
 }

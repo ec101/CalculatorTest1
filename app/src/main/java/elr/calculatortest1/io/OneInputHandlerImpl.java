@@ -10,7 +10,7 @@ public class OneInputHandlerImpl extends NumberInputHandler {
     }
 
     @Override
-    protected double getInputValue() {
-        return 1.0;
+    protected int getInputValue() {
+        return 1;
     }
 }

@@ -9,7 +9,7 @@ public class TwoInputHandlerImpl extends NumberInputHandler {
     }
 
     @Override
-    protected double getInputValue() {
-        return 2.0;
+    protected int getInputValue() {
+        return 2;
     }
 }
